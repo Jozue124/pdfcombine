@@ -23,14 +23,16 @@ def main():
 
     
     #create content of window
-    b = tk.Button(window,text="Add pdf",command=(lambda:get_file_path(pdfs)))
+    ab = tk.Button(window,text="Add pdf",command=(lambda:get_file_path(pdfs)))
     for pdf in pdfs:
-        label = Label(window, textvariable=pdf, relief=RAISED )
-
+        label = Label(window, textvariable=pdf, relief=RAISED)
+        pdflabels.append(label)
+    mb = tk.Button(window,text="Merge pdfs",command=(lambda:merge(pdfs)))
     #add content to window
     for label in pdflabels:
         label.pack()
-    b.pack()
+    mb.pack()
+    ab.pack()
 
     #run window
     window.geometry("500x200")
